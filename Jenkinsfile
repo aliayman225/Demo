@@ -3,7 +3,7 @@ pipeline {
     environment {
         NODE_ENV = 'production'
         BRANCH_NAME = "${env.BRANCH_NAME}"   
-        DOCKERHUB_CREDENTIALS=credentials('dockerhubaccess')
+      
     }
     stages {
         stage('Checkout') {
@@ -17,7 +17,8 @@ pipeline {
                 //sh "docker login -u ${JFROG_USERNAME} -p ${JFROG_PASSWORD} ${DOCKER_REGISTRY}"
                 //sh "docker login -u $JF_REGISTRY_USER -p $JFROG_PASSWORD"
                 //sh "docker login -u admin -p password http://192.168.1.10:8082/artifactory/devops"
-                sh "docker login -u $DOCKERHUB_CREDENTIALS_PSW -p $DOCKERHUB_CREDENTIALS_USR http://192.168.146.132:8082/artifactory/test"
+                sh "docker login -u admin -p Passw0rd http://192.168.146.132:8082/artifactory/test"
+
                 //sh "docker build -f Dockerfile . -t app admin/devops:${BUILD_NUMBER}"
                 sh "docker build -f Dockerfile . -t  http://192.168.146.132/test/app:${BUILD_NUMBER}"
                 
