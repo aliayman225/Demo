@@ -20,7 +20,7 @@ pipeline {
                 sh "docker login -u admin -p Passw0rd http://192.168.146.132:8081/artifactory/test"
 
                 //sh "docker build -f Dockerfile . -t app admin/devops:${BUILD_NUMBER}"
-                sh "docker build -f Dockerfile . -t  http://192.168.146.132:8081/test/app:${BUILD_NUMBER}"
+                  sh "docker build -f Dockerfile . -t  192.168.146.132:8082/test/app:${BUILD_NUMBER}"
                 
             }
         }
