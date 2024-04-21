@@ -20,14 +20,14 @@ pipeline {
                 sh "docker login -u admin -p Passw0rd http://192.168.146.132:8081/artifactory/test"
 
                 //sh "docker build -f Dockerfile . -t app admin/devops:${BUILD_NUMBER}"
-                sh "docker build -f Dockerfile . -t  http://192.168.146.132/test/app:${BUILD_NUMBER}"
+                sh "docker build -f Dockerfile . -t  http://192.168.146.132:8081/test/app:${BUILD_NUMBER}"
                 
             }
         }
         stage('Push Docker Image') {
             steps {
                 //sh "docker push devops:$BUILD_NUMBER"
-                sh "docker push 192.168.146.132/:8081/test/app:${BUILD_NUMBER}"
+                sh "docker push 192.168.146.132:8081/test/app:${BUILD_NUMBER}"
                 
                 //sh  "docker.push ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER}/${env.BRANCH_NAME}"
             }
