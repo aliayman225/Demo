@@ -27,7 +27,8 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 //sh "docker push devops:$BUILD_NUMBER"
-                sh "docker push 192.168.146.132:8081/test/app:${BUILD_NUMBER}"
+                sh "docker push 192.168.146.132:8082/test/app:${BUILD_NUMBER}"
+                //sh "docker push 192.168.146.132:8082/test/app:${BUILD_NUMBER}"
                 
                 //sh  "docker.push ${DOCKER_REGISTRY}/${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER}/${env.BRANCH_NAME}"
             }
